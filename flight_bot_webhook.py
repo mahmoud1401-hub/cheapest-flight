@@ -142,7 +142,7 @@ async def search_flights(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("No flights found.")
         return ConversationHandler.END
 
-    msg = "Here are some flight options:
+    msg = "Here are some flight options:\n\n"
 
 "
     for flight in data["data"]:
