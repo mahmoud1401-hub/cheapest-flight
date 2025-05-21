@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: telegram-flight-bot
+    runtime: python
+    buildCommand: ""
+    startCommand: python flight_bot_webhook.py
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: AMADEUS_CLIENT_ID
+        sync: false
+      - key: AMADEUS_CLIENT_SECRET
+        sync: false
+      - key: WEBHOOK_URL
+        sync: false
+    plan: free
