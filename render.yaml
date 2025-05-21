@@ -1,7 +1,0 @@
-services:
-  - type: web
-    name: flight-bot
-    env: python
-    buildCommand: ""
-    startCommand: python flight_bot.py
-    autoDeploy: true
