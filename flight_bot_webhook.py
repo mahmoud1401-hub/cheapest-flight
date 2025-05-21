@@ -149,10 +149,10 @@ async def search_flights(update: Update, context: ContextTypes.DEFAULT_TYPE):
         itinerary = flight["itineraries"][0]
         dep = itinerary["segments"][0]["departure"]["at"]
         arr = itinerary["segments"][-1]["arrival"]["at"]
-        msg += f"From: {from_code} to {to_code}
-Departure: {dep}
-Arrival: {arr}
-Price: {price} USD
+        msg += f"From: {from_code} to {to_code}\n"
+        msg += f"Departure: {dep}\n"
+        msg += f"Arrival: {arr}\n"
+        msg += f"Price: {price} USD\n\n"
 
     await update.message.reply_text(msg)
     return ConversationHandler.END
