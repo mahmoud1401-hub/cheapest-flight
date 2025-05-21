@@ -109,9 +109,7 @@ def search_flight(update: Update, context: CallbackContext):
         offer = result["data"][0]
         price = offer["price"]["total"]
         airline = offer["validatingAirlineCodes"][0]
-        update.message.reply_text(f"Cheapest flight:
-Airline: {airline}
-Price: ${price}")
+        update.message.reply_text(f"Cheapest flight: Airline: {airline} Price: ${price}")
     except Exception:
         update.message.reply_text("No flights found or response parsing failed.")
 
