@@ -144,7 +144,6 @@ async def search_flights(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     msg = "Here are some flight options:\n\n"
 
-"
     for flight in data["data"]:
         price = flight["price"]["total"]
         itinerary = flight["itineraries"][0]
@@ -154,8 +153,6 @@ async def search_flights(update: Update, context: ContextTypes.DEFAULT_TYPE):
 Departure: {dep}
 Arrival: {arr}
 Price: {price} USD
-
-"
 
     await update.message.reply_text(msg)
     return ConversationHandler.END
