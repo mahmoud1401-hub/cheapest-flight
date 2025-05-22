@@ -159,9 +159,8 @@ async def show_flights(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await update.message.reply_text("No flights found.")
         return ConversationHandler.END
 
-    msg = "Here are some flight options:
+    msg = "Here are some flight options:\n"
 
-"
     for flight in data["data"]:
         itinerary = flight["itineraries"][0]["segments"][0]
         from_code = itinerary["departure"]["iataCode"]
@@ -169,15 +168,11 @@ async def show_flights(update: Update, context: ContextTypes.DEFAULT_TYPE):
         dep = itinerary["departure"]["at"]
         arr = itinerary["arrival"]["at"]
         price = flight["price"]["total"]
-        msg += f"From: {from_code} to {to_code}
-"
-        msg += f"Departure: {dep}
-"
-        msg += f"Arrival: {arr}
-"
-        msg += f"Price: {price} USD
-
-"
+        
+        msg += f"From: {from_code} to {to_code}\n"
+        msg += f"Departure: {dep}\n"
+        msg += f"Arrival: {arr}\n"
+        msg += f"Price: {price} USD\n\n"
 
     await update.message.reply_text(msg)
     return ConversationHandler.END
